@@ -21,9 +21,9 @@ public class POOEjer10 {
 
         ArregloServicio miServicio = new ArregloServicio();             
         Arreglo miArreglo2 = miServicio.crearArregloA();
+        //Arreglo miArreglo2 = new Arreglo();
        
-        miServicio.ordenar(miArreglo2);
-            
+        miServicio.ordenar(miArreglo2);            
         miServicio.crearArregloB(miArreglo2);
 
     }
