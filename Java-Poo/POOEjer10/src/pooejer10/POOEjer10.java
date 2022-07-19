@@ -20,8 +20,10 @@ public class POOEjer10 {
     public static void main(String[] args) {
 
         ArregloServicio miServicio = new ArregloServicio();             
-        Arreglo miArreglo2 = miServicio.crearArregloA();
-        //Arreglo miArreglo2 = new Arreglo();
+       // Arreglo miArreglo2 = miServicio.crearArregloA();
+        Arreglo miArreglo2 = new Arreglo();
+       miServicio.crearArregloA();
+       
        
         miServicio.ordenar(miArreglo2);            
         miServicio.crearArregloB(miArreglo2);

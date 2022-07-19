@@ -37,11 +37,24 @@ public class SumaServicio {
        
        return estaEsLaSuma;       
    }
+   
+   
+   public int SumarCon3(int num3,Suma p){     
+       int estaEsLaSuma=0;       
+       //estaEsLaSuma= n1 + n2;
+       estaEsLaSuma= p.getN1() + p.getN2() + num3;
+       
+       return estaEsLaSuma;       
+   }
     
    
-   public void mostrar( Suma nombreCualquiera){
+   public void mostrar(int num3,  Suma nombreCualquiera){
      int miMetodo= Sumar(nombreCualquiera);
-       System.out.println("Este es el resultado: " + miMetodo);       
+       System.out.println("Este es el resultado: " + miMetodo);   
+              System.out.println("Este es el resultado dde sumar con 3: " + SumarCon3(num3, nombreCualquiera));       
+
    }
+   
+   
     
 }
