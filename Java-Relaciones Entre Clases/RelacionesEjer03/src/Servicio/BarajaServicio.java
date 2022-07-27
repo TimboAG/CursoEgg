@@ -25,13 +25,10 @@ public class BarajaServicio {
         int cont2 = 0;
         while (cont2 != 40) {
             CartaEntidad miCarta = crearCarta();
-
             miBaraja2.add(miCarta);
-
             miBarajaEntidad.setBaraja(miBaraja2);
             cont2 = cont2 + 1;
         }
-
         return miBaraja2;
     }
 

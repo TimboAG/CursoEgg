@@ -19,37 +19,27 @@ public class JugadorServicio {
     public ArrayList<JugadorEntidad> inicio() {
 
         ArrayList<JugadorEntidad> miJugador = new ArrayList();
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
-       
-
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");  
         System.out.println("Cuantos jugadores son:");
         int jug = leer.nextInt();
         int cont2 = 0;
-
         while (cont2 != jug) {
             if (miJugador.size() < 6) {
                 cont2 = cont2 + 1;
-
                 JugadorEntidad miJugador1 = crearJugador();
                 miJugador.add(miJugador1);
-
             } else {
                 System.out.println("SE COMPLETARON LOS 6 JUGADORES");
                 break;
             }
         }
-
-      
         int cont = 0;
         for (JugadorEntidad m : miJugador) {
             cont = cont + 1;
             m.setId(cont);
         }
-
         return miJugador;
     }
-    
-    
     
     int cont = 1;
 

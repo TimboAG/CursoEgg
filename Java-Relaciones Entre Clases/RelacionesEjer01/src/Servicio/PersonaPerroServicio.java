@@ -22,6 +22,10 @@ public class PersonaPerroServicio {
         String raza;
         double tamano;
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        
+        
+        
+        
         System.out.println("-------------DATOS DE PERSONA--------------");
         System.out.println("Ingrese su nombre");
         miPersona.setNombre(leer.next());
@@ -47,6 +51,11 @@ public class PersonaPerroServicio {
         return miPersona;
 
     }
+    
+    
+    
+    
+    
 
     public void mostrar(Persona mi) {
         System.out.println("-------------DATOS PERSONA Y DE SU PERRO--------------");
