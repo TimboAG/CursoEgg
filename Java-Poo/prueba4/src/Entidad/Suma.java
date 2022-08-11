@@ -36,6 +36,8 @@ public class Suma {
     public void setN2(int n2) {
         this.n2 = n2;
     }
+
+   
     
     
     

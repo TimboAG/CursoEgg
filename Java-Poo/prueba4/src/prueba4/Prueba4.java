@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package prueba4;
-import Entidad.Suma;
 import Servicio.SumaServicio;
+import Entidad.Suma;
 import java.util.Scanner;
 
 /**
