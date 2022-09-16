@@ -88,14 +88,14 @@ public final class FabricanteDao extends DAO {
             String sql = "SELECT * FROM Fabricantes ";
             consultarBase(sql);
             Fabricante fabricante = null;
-            List<Fabricante> fabricante_e = new ArrayList();
+            List<Fabricante> fabricanteList = new ArrayList();
             while (resultado.next()) {
                 fabricante = new Fabricante();
                 fabricante.setNombre(resultado.getString(2));
-                fabricante_e.add(fabricante);
+                fabricanteList.add(fabricante);
             }
             desconectarBase();
-            return fabricante_e;
+            return fabricanteList;
         } catch (Exception e) {
             e.printStackTrace();
             desconectarBase();

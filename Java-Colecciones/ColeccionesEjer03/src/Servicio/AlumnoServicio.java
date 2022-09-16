@@ -7,7 +7,6 @@ package Servicio;
 
 import Entidad.Alumno;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -17,18 +16,13 @@ import java.util.Scanner;
 public class AlumnoServicio {
 
     public ArrayList<Alumno> mi() {
-        ArrayList<Alumno> miAlum = new ArrayList();
-
-        
+        ArrayList<Alumno> miAlum = new ArrayList();        
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
         int opc = 1;
         String opc2;
-
         while (opc != 0) {
             Alumno miAlumno = crearAlumno();
             miAlum.add(miAlumno);
-
             System.out.println("----------------------------");
             System.out.println("Quiere ingresar otro alumno?");
             opc2 = leer.next();

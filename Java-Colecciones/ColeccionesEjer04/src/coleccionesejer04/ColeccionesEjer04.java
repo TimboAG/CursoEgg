@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package coleccionesejer04;
-import Entidad.Cine;
 import Servicio.CineServicio;
+import Entidad.Cine;
+
 import java.util.ArrayList;
 
 /**
