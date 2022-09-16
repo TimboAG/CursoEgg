@@ -15,7 +15,7 @@ public class BarajaEntidad {
 
     public BarajaEntidad() {
     }
-
+    
     public BarajaEntidad(ArrayList<CartaEntidad> baraja) {
         this.baraja = baraja;
     }
