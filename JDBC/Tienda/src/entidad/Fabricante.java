@@ -15,7 +15,7 @@ public class Fabricante {
 
     public Fabricante() {
     }
-
+    
     public Fabricante(int codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
