@@ -18,6 +18,7 @@ public class ClaseServicio {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
     public ArrayList<ClaseEntidad> cargarArray() {
+        //ArrayList<ClaseEntidad> miArray = new ArrayList<ClaseEntidad>();
         ArrayList<ClaseEntidad> miArray = new ArrayList();
         String opcionIngreso;
         int opcionFinalizar = 1;
