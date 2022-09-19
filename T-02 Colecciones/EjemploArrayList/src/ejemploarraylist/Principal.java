@@ -23,6 +23,7 @@ public class Principal {
      // miServicio.mostrar(miEntidad);
       ArrayList<ClaseEntidad> miArray= miServicio.cargarArray();
       miServicio.mostrar(miArray);
+      //miServicio.buscar(miArray);
     }
     
 }
