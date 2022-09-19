@@ -48,6 +48,28 @@ public class ClaseServicio {
     }
 
     public void mostrar(ArrayList<ClaseEntidad> miEntidad) {
+        System.out.println("------ Imprime ArrayList toString --------- ");
         System.out.println(miEntidad.toString());
+        System.out.println("\n------ Imprime ArrayList For Each --------- ");
+        for (ClaseEntidad i : miEntidad) {
+            System.out.println(i);
+        }
+    }
+
+    public void buscar(ArrayList<ClaseEntidad> miEntidad) {
+        System.out.println("----------Ingrese el dato a buscar----------");
+        String datoBuscar = leer.next();
+        int cont = 0;
+        int posicion = 0;
+        for (ClaseEntidad i : miEntidad) {
+            if (i.getAtributo1().equalsIgnoreCase(datoBuscar) || i.getAtributo2() == Integer.parseInt(datoBuscar)) {
+                System.out.println("Elemento encontrado: " + datoBuscar + " en la posicion: " + posicion);
+                cont++;
+            }
+            posicion++;
+        }
+        if (cont == 0) {
+            System.out.println("No existe el dato");
+        }
     }
 }
