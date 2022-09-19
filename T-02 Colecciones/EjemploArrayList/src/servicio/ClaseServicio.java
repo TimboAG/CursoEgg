@@ -62,6 +62,7 @@ public class ClaseServicio {
         String datoBuscar = leer.next();
         int cont = 0;
         int posicion = 0;
+        System.out.println("----------FOR EACH----------");
         for (ClaseEntidad i : miEntidad) {
             if (i.getAtributo1().equalsIgnoreCase(datoBuscar) || i.getAtributo2() == Integer.parseInt(datoBuscar)) {
                 System.out.println("Elemento encontrado: " + datoBuscar + " en la posicion: " + posicion);
@@ -71,6 +72,12 @@ public class ClaseServicio {
         }
         if (cont == 0) {
             System.out.println("No existe el dato");
+        }
+        System.out.println("----------FOR----------");
+        for (int i = 0; i < miEntidad.size(); i++) {
+            if (datoBuscar.equals(miEntidad.get(i).getAtributo1()) || datoBuscar.equals(String.valueOf(miEntidad.get(i).getAtributo2()))) {
+                System.out.println("Elemento encontrado: " + datoBuscar + " en la posicion: " + i);
+            }
         }
     }
 }
