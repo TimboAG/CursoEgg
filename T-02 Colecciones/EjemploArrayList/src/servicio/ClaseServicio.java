@@ -53,10 +53,11 @@ public class ClaseServicio {
     }
 
     public void buscar(ArrayList<ClaseEntidad> miArrayList) {
-        System.out.println("----------Ingrese el dato a buscar----------");
+        System.out.println("\n----------Ingrese el dato a buscar----------");
         String datoBuscar = leer.next();
         int cont = 0;
         int posicion = 0;
+        System.out.println("----------FOR EACH----------");
         for (ClaseEntidad i : miArrayList) {
             if (i.getAtributo1().equalsIgnoreCase(datoBuscar)) {
                 System.out.println("Elemento encontrado: " + datoBuscar + " en la posicion: " + posicion);
