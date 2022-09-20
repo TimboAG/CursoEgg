@@ -21,9 +21,9 @@ public class Principal {
       ClaseServicio miServicio = new ClaseServicio();
      // ClaseEntidad miEntidad = miServicio.crearObjeto();
      // miServicio.mostrar(miEntidad);
-      ArrayList<ClaseEntidad> miArray= miServicio.cargarArray();
-      miServicio.mostrar(miArray);
-      //miServicio.buscar(miArray);
+      ArrayList<ClaseEntidad> miArrayList= miServicio.cargarArray();
+      miServicio.mostrar(miArrayList);
+      miServicio.buscar(miArrayList);
     }
     
 }

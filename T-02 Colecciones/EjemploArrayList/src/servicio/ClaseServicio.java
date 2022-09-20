@@ -15,25 +15,18 @@ import java.util.Scanner;
  */
 public class ClaseServicio {
 
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    private Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
     public ArrayList<ClaseEntidad> cargarArray() {
-        ArrayList<ClaseEntidad> miArray = new ArrayList();
-        String opcionIngreso;
-        int opcionFinalizar = 1;
-        while (opcionFinalizar != 0) {
+        //ArrayList<ClaseEntidad> miArray = new ArrayList<ClaseEntidad>();
+        //Convencion de nombrado despues de java 7.0
+        ArrayList<ClaseEntidad> miArrayList = new ArrayList();
+        for (int i = 1; i < 4; i++) {
+            System.out.println("------Objeto " + i + "-------");
             ClaseEntidad miEntidad = crearObjeto();
-            miArray.add(miEntidad);
-            System.out.println("----------------------------");
-            System.out.println("Quiere ingresar otra objeto?");
-            opcionIngreso = leer.next();
-            if ("S".equalsIgnoreCase(opcionIngreso) || "Si".equalsIgnoreCase(opcionIngreso)) {
-                opcionFinalizar = 1;
-            } else {
-                opcionFinalizar = 0;
-            }
+            miArrayList.add(miEntidad);
         }
-        return miArray;
+        return miArrayList;
     }
 
     public ClaseEntidad crearObjeto() {
@@ -47,22 +40,25 @@ public class ClaseServicio {
         return miEntidad;
     }
 
-    public void mostrar(ArrayList<ClaseEntidad> miEntidad) {
+    public void mostrar(ArrayList<ClaseEntidad> miArrayList) {
         System.out.println("------ Imprime ArrayList toString --------- ");
-        System.out.println(miEntidad.toString());
+        System.out.println(miArrayList.toString());
         System.out.println("\n------ Imprime ArrayList For Each --------- ");
-        for (ClaseEntidad i : miEntidad) {
+        //ventaja  no necesitamos saber cual es el limite de la lista para recorrerla . 
+        //Es decir no tenemos porque acceder al método size
+        // El i es nombre que recibe la variable o referencia local, con la que va a operar el bucle. "variable temporal"
+        for (ClaseEntidad i : miArrayList) {
             System.out.println(i);
         }
     }
 
-    public void buscar(ArrayList<ClaseEntidad> miEntidad) {
+    public void buscar(ArrayList<ClaseEntidad> miArrayList) {
         System.out.println("----------Ingrese el dato a buscar----------");
         String datoBuscar = leer.next();
         int cont = 0;
         int posicion = 0;
-        for (ClaseEntidad i : miEntidad) {
-            if (i.getAtributo1().equalsIgnoreCase(datoBuscar) || i.getAtributo2() == Integer.parseInt(datoBuscar)) {
+        for (ClaseEntidad i : miArrayList) {
+            if (i.getAtributo1().equalsIgnoreCase(datoBuscar)) {
                 System.out.println("Elemento encontrado: " + datoBuscar + " en la posicion: " + posicion);
                 cont++;
             }
