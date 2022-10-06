@@ -1,0 +1,23 @@
+* {
+  margin: auto;
+  padding: auto;
+}
+body {
+  background-color: #000000;
+  font-family: arial;
+  color: White;
+}
+h1 {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+p {
+  font-family: "arial";
+  text-align: left;
+  color: #bf8080;
+  margin: 50px;
+}
