@@ -26,7 +26,7 @@ li {
 a {
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
-  color: #ccc !important;
+  color: #ccc;
   text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 a:hover {
@@ -45,11 +45,7 @@ a:hover {
   -o-border-radius: 10px;
   text-shadow: none;
 }
-a:active {
-  color: rgb(39, 49, 1);
-  font-family: "Montserrat", sans-serif;
-}
 a:visited {
-  color: rgb(39, 49, 1);
+  color: rgb(0, 182, 253);
   font-family: "Montserrat", sans-serif;
 }
