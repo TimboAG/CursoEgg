@@ -1,0 +1,37 @@
+* {
+  margin: auto;
+  padding: auto;
+}
+body {
+  background-color: #000000;
+  font-family: arial;
+  color: White;
+}
+h1 {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+h2 {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+p {
+  font-family: "arial";
+  text-align: left;
+  color: #2603a5;
+  margin: 50px;
+}
+.btn-primary {
+  align-items: center;
+  background-color: #000000 !important;
+  border-color: #2603a5 !important;
+}
+.card-body {
+  text-align: center;
+}
+.card-text {
+  text-align: center;
+}
+.card {
+  border: 5px solid rgba(0, 0, 0, 0.125) !important;
+}
