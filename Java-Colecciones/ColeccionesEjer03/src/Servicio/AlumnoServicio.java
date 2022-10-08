@@ -38,6 +38,16 @@ public class AlumnoServicio {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public Alumno crearAlumno() {
         Alumno miAlumno = new Alumno();
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
@@ -63,6 +73,24 @@ public class AlumnoServicio {
         return miAlumno;
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public double notaFinal(ArrayList<Alumno> miAlumn) {
 
         double nota;

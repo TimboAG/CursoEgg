@@ -1,0 +1,29 @@
+* {
+  margin: auto;
+  padding: auto;
+}
+body {
+  background-color: #000000;
+  font-family: arial;
+  color: White;
+}
+
+form {
+  margin-top: 5%;
+  width: 80% !important;
+}
+.negrita {
+  font-weight: bold;
+}
+.btn-primary {
+  color: rgb(88, 86, 86) !important;
+  background-color: #dfdfdf !important;
+  border-color: #d1d0d0 !important;
+}
+.btn-primary.focus,
+.btn-primary:focus {
+  color: #fff;
+  background-color: #c1dbf7 !important;
+  border-color: none !important;
+  box-shadow: 0 0 0 0.2rem #cde1f8 !important;
+}
