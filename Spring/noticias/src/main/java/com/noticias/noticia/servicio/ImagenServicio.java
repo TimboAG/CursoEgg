@@ -18,12 +18,10 @@ public class ImagenServicio {
     private ImagenRepositorio imagenRepositorio;
 
     @Transactional //impactan
-    public ImagenEntidad guardar(MultipartFile archivo) throws MiException,Exception {
+    public ImagenEntidad guardar(MultipartFile archivo) throws MiException, Exception {
         validar(archivo);
-                                    ImagenEntidad imagen = new ImagenEntidad();
-
+        ImagenEntidad imagen = new ImagenEntidad();
         if (archivo != null) {
-
             try {
                 imagen.setMime(archivo.getContentType());
                 imagen.setNombre(archivo.getName());
@@ -34,7 +32,7 @@ public class ImagenServicio {
                 return null;
             }
         }
-       return imagen;
+        return imagen;
     }
 
     @Transactional

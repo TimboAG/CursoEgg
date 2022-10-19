@@ -22,49 +22,36 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/noticia")
 public class noticiaControlador {
 
-        private NoticiaServicio serv;
+    private NoticiaServicio serv;
 
-    //   @GetMapping("/")
-    @GetMapping("/registrar")
-    public String PruebaControlador() {
-        return "noticias_form";
-    } //no hace nada
-
-    @PostMapping("/registro")
-      // public String regristro(@RequestParam String titulo, @RequestParam String cuerpo, @RequestParam MultipartFile archivo) {
-
+    
+    /* @PostMapping("/registro")
+// public String regristro(@RequestParam String titulo, @RequestParam String cuerpo, @RequestParam MultipartFile archivo) {
    public String regristro(@RequestParam String titulo, @RequestParam String cuerpo, @RequestParam MultipartFile archivo) {
         System.out.println("Titulo = " + titulo);
         System.out.println("Cuerpo = " + cuerpo);
         System.out.println("Foto = " + archivo);
         return "noticias_form";
     }
-    
-    
-    
-//    @PostMapping("/registro")
-//         public String regristro(@RequestParam MultipartFile archivo, @RequestParam String titulo, @RequestParam String cuerpo) throws MiException, Exception {
-//
-//  //   public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
-////    public String registro(@RequestParam MultipartFile archivo, String titulo, String cuerpo, ModelMap modelo) throws MiException, Exception{
-//        
-//        try {
-//             System.out.println("Titulo = " + titulo);
-//       System.out.println("Cuerpo = " + cuerpo);
-//             System.out.println("Foto = " + archivo);
-//            serv.crearNoticia(titulo,cuerpo, archivo);
-//            
-//           // modelo.put("exito", "La noticia fue registrado correctamente!");
-//        } catch (MiException ex) {
-//            System.out.println(ex);
-//           //Logger.getLogger(noticiaControlador.class.getName()).log(Logger.Level.FATAL, null, ex);
-//           Logger.getLogger(noticiaControlador.class.getName()).log(Logger.Level.FATAL, null, ex);
-//            //Logger.getLogger(noticiaControlador.class.getName()).log(Level.SEVERE, null, ex);
-//            //modelo.put("error", ex.getMessage());
-//            return "noticias_form";
-//        }
-//        
-//        return "index.html";        
-//    }
-    
+     */
+    @PostMapping("/registro")
+    public String regristro(@RequestParam MultipartFile archivo, @RequestParam String titulo, @RequestParam String cuerpo) throws MiException, Exception {
+ //   public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
+//    public String registro(@RequestParam MultipartFile archivo, String titulo, String cuerpo, ModelMap modelo) throws MiException, Exception{
+        try {
+            System.out.println("Titulo = " + titulo);
+            System.out.println("Cuerpo = " + cuerpo);
+            System.out.println("Foto = " + archivo);
+            serv.crearNoticia(titulo, cuerpo, archivo);
+            // modelo.put("exito", "La noticia fue registrado correctamente!");
+        } catch (MiException ex) {
+            System.out.println(ex);
+            Logger.getLogger(noticiaControlador.class.getName()).log(Logger.Level.FATAL, null, ex);
+            //Logger.getLogger(noticiaControlador.class.getName()).log(Level.SEVERE, null, ex);
+            //modelo.put("error", ex.getMessage());
+            return "noticias_form";
+        }
+        return "noticias_form";
+    }
+
 }
