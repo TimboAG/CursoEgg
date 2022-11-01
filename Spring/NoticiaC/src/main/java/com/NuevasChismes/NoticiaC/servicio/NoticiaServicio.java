@@ -39,7 +39,7 @@ public class NoticiaServicio {
             if (respuesta.isPresent()) {
                 miNoticia = respuesta.get();
             }
-            miNoticia.setCuerpo(titulo);
+            miNoticia.setTitulo(titulo);
             Imagen miImagen = miserv.guardar(archivo);
             miNoticia.setFoto(miImagen);
             miNoticia.setCuerpo(cuerpo);
@@ -67,5 +67,9 @@ public class NoticiaServicio {
         if (archivo == null) {
             throw new MiException("El archivo no puede estar vacio");
         }
+    }
+    
+    public Noticia getOne(Long id){
+        return noticiaRepositorio.getOne(id);
     }
 }

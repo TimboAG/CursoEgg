@@ -20,12 +20,13 @@ and open the template in the editor.
                     <div class="contenido">
                         <img src="/imagenes/imagenNoticia.png" class="rounded-circle" id="imagenCabecera" alt="imagen noticia" width="165">
 
-                        <h1>Cargue su noticia aqui </h1>
+                        <h1>Modifique su noticia aqui </h1>
                     </div>
                 </header>
             </div>
             <div class="card-body">
-                <form action="/noticia/registro" method="POST" enctype="multipart/form-data"> 
+                <form th:action="@{/noticia/modificar/__${noticiaLista.id}__}" method="POST" enctype="multipart/form-data"> 
+                    <input hidden th:value="${id}" name="id">
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationServer01">Titulo</label>
@@ -54,7 +55,7 @@ and open the template in the editor.
                         <p class="MensajeExito" th:text="${exito}"></p>
                         <a class="btn" th:href="@{/noticia/listar}" >Listar noticias</a>
                     </div>
-                    <button class="btn btn-secondary btn-lg btn-block" type="submit" id="botonEnviar">Enviar</button>
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit" id="botonEnviar">Actualizar</button>
                 </form>
             </div>
         </div>      
