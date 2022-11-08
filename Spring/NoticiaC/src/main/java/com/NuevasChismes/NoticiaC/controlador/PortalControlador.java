@@ -110,7 +110,7 @@ public class PortalControlador {
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @PostMapping("/perfilM/{id}")
-    public String actualizar(HttpSession session, MultipartFile archivo, @PathVariable String id, @RequestParam String nombre, @RequestParam String email,
+    public String actualizar(HttpSession session, @RequestParam("foto") MultipartFile archivo, @PathVariable String id, @RequestParam String nombre, @RequestParam String email,
             @RequestParam String pass, @RequestParam String pass2, ModelMap modelo) {
         try {
             Usuario usuario = (Usuario) session.getAttribute("usuariosession");

@@ -53,7 +53,7 @@ public class UsuarioServicio implements UserDetailsService {
     @Transactional
     public void actualizar(MultipartFile archivo, String idUsuario, String nombre,
             String email, String password, String password2) throws MiException {
-        validar(nombre, email, password, password2);
+        validarActualizar(nombre, email, password, password2);
         Optional<Usuario> respuesta = usuarioRepositorio.findById(idUsuario);
         if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
@@ -105,6 +105,27 @@ public class UsuarioServicio implements UserDetailsService {
         if (usuario != null) {
             throw new MiException("El email ya se encuentra registrado");
         }
+    }
+    
+    private void validarActualizar(String nombre, String email, String password, String password2) throws MiException {
+        if (nombre.isEmpty() || nombre == null) {
+            throw new MiException("El nombre no puede estar estar vacío");
+        }
+        if (email.isEmpty() || email == null) {
+            throw new MiException("El email no puede estar vacio");
+        }
+        if (password.isEmpty()) {
+            throw new MiException("La contraseña no puede estar vacía");
+        }
+        if (password2.isEmpty()) {
+            throw new MiException("Debe repetir la contraseña");
+        }
+        if (password.length() < 5) {
+            throw new MiException("La contraseña debe tener más de 5 dígitos");
+        }
+        if (!password.equals(password2)) {
+            throw new MiException("Las contraseñas ingresadas deben ser iguales");
+        }        
     }
 
     @Override
