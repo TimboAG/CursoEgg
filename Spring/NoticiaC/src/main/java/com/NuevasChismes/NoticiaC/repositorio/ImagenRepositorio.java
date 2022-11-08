@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ImagenRepositorio extends JpaRepository<Imagen, String> {
+public interface ImagenRepositorio extends JpaRepository<Imagen, Long> {
 
     public Optional<Imagen> findById(Long id);
 

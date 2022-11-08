@@ -18,17 +18,38 @@ body {
     text-align:center;
     margin-bottom: 5%;
 }
-.card{
-    margin: 5%;
-    border-radius: 1.5rem !important;
-}
 form{
     margin: 5%;
 }
 #botonEnviar {
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 textarea.form-control {
     height: calc !important;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 1.25rem !important;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding-bottom: 2%;
+    padding-top:  2%;
+}
+#registroCard{
+    margin: 8%;
 }

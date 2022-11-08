@@ -1,8 +1,8 @@
 package com.NuevasChismes.NoticiaC.servicio;
 
-import com.NuevasChismes.NoticiaC.entidad.Imagen;
+import com.NuevasChismes.NoticiaC.entidad.ImagenUsuario;
 import com.NuevasChismes.NoticiaC.excepcion.MiException;
-import com.NuevasChismes.NoticiaC.repositorio.ImagenRepositorio;
+import com.NuevasChismes.NoticiaC.repositorio.ImagenUsuarioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,21 +12,21 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class ImagenServicio {
+public class ImagenUsuarioServicio {
 
     @Autowired
-    private ImagenRepositorio imagenRepositorio;
+    private ImagenUsuarioRepositorio imagenUsuarioRepositorio;
 
     @Transactional //impactan
-    public Imagen guardar(MultipartFile archivo) throws MiException, Exception {
+    public ImagenUsuario guardar(MultipartFile archivo) throws MiException, Exception {
         validar(archivo);
-        Imagen imagen = new Imagen();
+        ImagenUsuario imagen = new ImagenUsuario();
         if (archivo != null) {
             try {
                 imagen.setMime(archivo.getContentType());
                 imagen.setNombre(archivo.getName());
                 imagen.setContenido(archivo.getBytes());
-                return imagenRepositorio.save(imagen);
+                return imagenUsuarioRepositorio.save(imagen);
             } catch (Exception e) {
                 System.err.println(e.getMessage());
                 return null;
@@ -36,12 +36,12 @@ public class ImagenServicio {
     }
 
     @Transactional
-    public Imagen actualizar(MultipartFile archivo, Long id) throws MiException {
+    public ImagenUsuario actualizar(MultipartFile archivo, Long id) throws MiException {
         if (archivo != null) {
             try {
-                Imagen imagen = new Imagen();
+                ImagenUsuario imagen = new ImagenUsuario();
                 if (id != null) {
-                    Optional<Imagen> respuesta = imagenRepositorio.findById(id);
+                    Optional<ImagenUsuario> respuesta = imagenUsuarioRepositorio.findById(id);
                     if (respuesta.isPresent()) {
                         imagen = respuesta.get();
                     }
@@ -49,7 +49,7 @@ public class ImagenServicio {
                 imagen.setMime(archivo.getContentType());
                 imagen.setNombre(archivo.getName());
                 imagen.setContenido(archivo.getBytes());
-                return imagenRepositorio.save(imagen);
+                return imagenUsuarioRepositorio.save(imagen);
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
@@ -58,9 +58,9 @@ public class ImagenServicio {
     }
 
     @Transactional(readOnly = true) //Es de tipo lectura
-    public List<Imagen> listarImagen() {
-        List<Imagen> miLista = new ArrayList<>();
-        miLista = imagenRepositorio.findAll();
+    public List<ImagenUsuario> listarImagen() {
+        List<ImagenUsuario> miLista = new ArrayList<>();
+        miLista = imagenUsuarioRepositorio.findAll();
         return miLista;
     }
 

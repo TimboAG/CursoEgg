@@ -65,4 +65,5 @@ public class NoticiaControlador {
             return "noticia_modificar";
         }
     }
+
 }
