@@ -30,9 +30,9 @@ public class NoticiaControlador {
     }
 
     @PostMapping("/registro")
-    public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo, ModelMap modelo) throws MiException, Exception {
+    public String regristro(@RequestParam("foto") MultipartFile archivo, @RequestParam("titulo") String titulo, @RequestParam("cuerpo") String cuerpo, @RequestParam("alta") String alta, ModelMap modelo) throws MiException, Exception {
         try {
-            noticiaServicio.crearNoticia(titulo, cuerpo, archivo);
+            noticiaServicio.crearNoticia(titulo, cuerpo, archivo, alta);
             modelo.put("exito", "La noticia fue registrado correctamente!");
         } catch (MiException ex) {
             System.out.println(ex);
@@ -44,6 +44,7 @@ public class NoticiaControlador {
 
     @GetMapping("/listar")
     public String listar(ModelMap modelo) {
+//        List<Noticia> noticiaLista = noticiaServicio.listarNoticias();
         List<Noticia> noticiaLista = noticiaServicio.listarNoticias();
         modelo.addAttribute("noticiaLista", noticiaLista);
         return "listar";
@@ -56,9 +57,9 @@ public class NoticiaControlador {
     }
 
     @PostMapping("/modificar/{id}")
-    public String modificar(@RequestParam("titulo") String titulo, @PathVariable Long id, @RequestParam("cuerpo") String cuerpo, @RequestParam("foto") MultipartFile archivo, ModelMap modelo) throws MiException, Exception {
+    public String modificar(@RequestParam("titulo") String titulo, @PathVariable Long id, @RequestParam("cuerpo") String cuerpo, @RequestParam("foto") MultipartFile archivo, @RequestParam("alta") String alta, ModelMap modelo) throws MiException, Exception {
         try {
-            noticiaServicio.actualizarNoticia(titulo, id, cuerpo, archivo);
+            noticiaServicio.actualizarNoticia(titulo, id, cuerpo, archivo, alta);
             return "redirect:../listar";
         } catch (MiException e) {
             modelo.put("error", e.getMessage());
@@ -66,4 +67,31 @@ public class NoticiaControlador {
         }
     }
 
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable Long id) throws Exception {
+        noticiaServicio.eliminar(id);
+        return "redirect:../listar";
+    }
+
+    @GetMapping("/alta/{id}")
+    public String alta( @PathVariable Long id, ModelMap modelo) throws MiException, Exception {
+        try {
+            noticiaServicio.alta( id );
+            return "redirect:../listar";
+        } catch (MiException e) {
+            modelo.put("error", e.getMessage());
+            return "redirect:../listar";
+        }
+    }
+
+    @GetMapping("/baja/{id}")
+    public String baja(@PathVariable Long id, ModelMap modelo) throws MiException, Exception {
+        try {
+            noticiaServicio.baja(id);
+            return "redirect:../listar";
+        } catch (MiException e) {
+            modelo.put("error", e.getMessage());
+            return "redirect:../listar";
+        }
+    }
 }

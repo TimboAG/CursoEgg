@@ -1,25 +1,17 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 24/10/2022, 20:08:31
-    Author     : Usuario
-*/
-
 body {
-    background-color: #ccccff !important;
+    background-color: #ed8f31 !important;
 }
-#imagenCabecera{
-    margin-top: 5%;
+
+#imagenCabecera{    
+    overflow: hidden;
+    visibility: visible;
 }
 .contenido{
     text-align:center;
     margin-bottom: 5%;
 }
 form{
-    margin: 5%;
+    margin: 2%;
 }
 #botonEnviar {
     align-items: center;
@@ -52,4 +44,78 @@ textarea.form-control {
 }
 #registroCard{
     margin: 8%;
+}
+#nav {
+    padding-top: 1.5%;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    background-color: #343a4000!important;
+    opacity: 1 !important;
+}
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 186px;
+    padding-top: 100px;
+    background: rgb(63,154,207);
+    background: linear-gradient(0deg, rgba(63,154,207,1) 0%, rgba(38,127,193,1) 100%);    margin-bottom: 5%;
+}
+
+
+element.style {
+}
+.curve {
+    position: absolute;
+    height: 170px;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+.curve::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    transform: translate(85%, 60%);
+    background-color: #ed8f31 !important;
+}
+
+.curve::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: #409acf;
+    transform: translate(-4%, 40%);
+    z-index: -1;
+}
+.derecha{
+    margin-top: -3%;
+    text-align: right !important;
+    float:right !important;
+}
+#navbarText{
+    margin-top: -0.5%;
+}
+.navbar-collapse {
+    background: #343a4000 !important;
+    text-align: right;
+
+}
+#navbarText{
+    padding-right: 3%;
+}
+#cardTrue{
+    background-color: #fff;
+    max-width: 30%;
+}
+#cardFalse{
+    background-color: #hhh !important;
 }

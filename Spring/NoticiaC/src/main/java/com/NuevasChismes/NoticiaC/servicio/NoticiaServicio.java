@@ -21,18 +21,25 @@ public class NoticiaServicio {
     private ImagenServicio miserv;
 
     @Transactional
-    public void crearNoticia(String titulo, String cuerpo, MultipartFile archivo) throws MiException, Exception {
+    public void crearNoticia(String titulo, String cuerpo, MultipartFile archivo, String alta) throws MiException, Exception {
         validar(titulo, cuerpo, archivo);
         Noticia miNoticia = new Noticia();
         miNoticia.setCuerpo(cuerpo);
         miNoticia.setTitulo(titulo);
+        if (alta.equalsIgnoreCase("1")) {
+            miNoticia.setAlta(true);
+            miNoticia.setBaja(false);
+        } else {
+            miNoticia.setAlta(false);
+            miNoticia.setBaja(true);
+        }
         Imagen miImagen = miserv.guardar(archivo);
         miNoticia.setFoto(miImagen);
         noticiaRepositorio.save(miNoticia);
     }
 
     @Transactional
-    public Noticia actualizarNoticia(String titulo, Long id, String cuerpo, MultipartFile archivo) throws Exception {
+    public Noticia actualizarNoticia(String titulo, Long id, String cuerpo, MultipartFile archivo, String alta) throws Exception {
         Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
         try {
             Noticia miNoticia = new Noticia();
@@ -43,6 +50,13 @@ public class NoticiaServicio {
             Imagen miImagen = miserv.guardar(archivo);
             miNoticia.setFoto(miImagen);
             miNoticia.setCuerpo(cuerpo);
+            if (alta.equalsIgnoreCase("1")) {
+                miNoticia.setAlta(true);
+                miNoticia.setBaja(false);
+            } else {
+                miNoticia.setAlta(false);
+                miNoticia.setBaja(true);
+            }
             return noticiaRepositorio.save(miNoticia);
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -68,8 +82,57 @@ public class NoticiaServicio {
             throw new MiException("El archivo no puede estar vacio");
         }
     }
-    
-    public Noticia getOne(Long id){
+
+    public Noticia getOne(Long id) {
         return noticiaRepositorio.getOne(id);
+    }
+
+    @Transactional
+    public Noticia eliminar(Long id) throws Exception {
+        Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
+        try {
+            Noticia miNoticia = new Noticia();
+            if (respuesta.isPresent()) {
+                miNoticia = respuesta.get();
+                noticiaRepositorio.deleteById(id);
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+    @Transactional
+    public Noticia alta(Long id) throws Exception {
+        Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
+        try {
+            Noticia miNoticia = new Noticia();
+            if (respuesta.isPresent()) {
+                miNoticia = respuesta.get();
+            }
+            miNoticia.setAlta(true);
+            miNoticia.setBaja(false);
+            return noticiaRepositorio.save(miNoticia);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+    @Transactional
+    public Noticia baja(Long id) throws Exception {
+        Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
+        try {
+            Noticia miNoticia = new Noticia();
+            if (respuesta.isPresent()) {
+                miNoticia = respuesta.get();
+            }
+            miNoticia.setAlta(false);
+            miNoticia.setBaja(true);
+            return noticiaRepositorio.save(miNoticia);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
     }
 }

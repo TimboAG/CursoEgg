@@ -27,18 +27,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/imagen")
 public class ImagenControlador {
-     @Autowired
+
+    @Autowired
     private ImagenServicio imagenServ;
-     
-     @Autowired
+    @Autowired
+    private NoticiaServicio notiServ;
+
+    @GetMapping("/imagen2/{id}")
+    public ResponseEntity<byte[]> imagen2(@PathVariable Long id) {
+        Noticia noticia = notiServ.getOne(id);
+        byte[] imagen = noticia.getFoto().getContenido();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        return new ResponseEntity<>(imagen, headers, HttpStatus.OK);
+    }
+    
+    
+    
+    
+    @Autowired
     private UsuarioServicio usuarioServicio;
-     
+
     @GetMapping("/perfil/{id}")
-    public ResponseEntity<byte[]> imagen(@PathVariable String id){
+    public ResponseEntity<byte[]> imagen(@PathVariable String id) {
         Usuario usuario = usuarioServicio.getOne(id);
         byte[] imagen = usuario.getImagen().getContenido();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_JPEG);
-        return new ResponseEntity<>(imagen,headers,HttpStatus.OK);
-  }
+        return new ResponseEntity<>(imagen, headers, HttpStatus.OK);
+    }
 }

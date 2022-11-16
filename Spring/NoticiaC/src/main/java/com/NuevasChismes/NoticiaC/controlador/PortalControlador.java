@@ -1,7 +1,9 @@
 package com.NuevasChismes.NoticiaC.controlador;
 
+import com.NuevasChismes.NoticiaC.entidad.Noticia;
 import com.NuevasChismes.NoticiaC.entidad.Usuario;
 import com.NuevasChismes.NoticiaC.excepcion.MiException;
+import com.NuevasChismes.NoticiaC.servicio.NoticiaServicio;
 import com.NuevasChismes.NoticiaC.servicio.UsuarioServicio;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class PortalControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
+    @Autowired
+    private NoticiaServicio noticiaServicio;
 
     @GetMapping("/")
     public String index() {
@@ -68,30 +72,6 @@ public class PortalControlador {
         return "inicio";
     }
 
-//    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-//    @GetMapping("/perfil")
-//    public String perfil(ModelMap modelo, HttpSession session) {
-//        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-//        modelo.put("usuario", usuario);
-//        return "perfil";
-//    }
-//
-//    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-//    @GetMapping("/perfilModificar/{id}")
-//    public String actualizar(HttpSession session, @RequestParam("foto") MultipartFile archivo, @RequestParam("nombre") String nombre, @RequestParam("email") String email, @RequestParam("pass") String pass, @RequestParam("pass2") String pass2, ModelMap modelo) throws MiException, Exception {
-//        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-//        modelo.put("usuario", usuario);
-//        try {
-//            usuarioServicio.actualizar(archivo, usuario.getId(), nombre, email, pass, pass);
-//            modelo.put("exito", "Usuario actualizado correctamente");
-//            return "perfil";
-//        } catch (Exception e) {
-//            modelo.put("error", e.getMessage());
-//            modelo.put("nombre", nombre);
-//            modelo.put("email", email);
-//            return "perfilModificar";
-//        }
-//    }
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/perfil")
     public String perfil(ModelMap modelo, HttpSession session) {
@@ -104,7 +84,7 @@ public class PortalControlador {
     @GetMapping("/perfilM")
     public String perfilModificar(ModelMap modelo, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuariosession");
-        modelo.put("usuario", usuario);        
+        modelo.put("usuario", usuario);
         return "perfilModificar";
     }
 
@@ -130,4 +110,14 @@ public class PortalControlador {
         }
     }
 
+    @GetMapping("/quienesSomos")
+    public String quienesSomos() {
+        return "quienesSomos";
+    }
+ 
+    
+    
+   
+    
+    
 }

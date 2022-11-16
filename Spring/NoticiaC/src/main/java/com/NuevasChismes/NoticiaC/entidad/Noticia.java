@@ -14,18 +14,38 @@ public class Noticia {
     private Long id;
     private String titulo;
     private String cuerpo;
+    private Boolean alta;
+    private Boolean baja;
     @OneToOne
     private Imagen foto;
 
     public Noticia() {
     }
 
-    public Noticia(Long id, String titulo, String cuerpo, Imagen foto) {
+    public Noticia(Long id, String titulo, String cuerpo, Boolean alta, Boolean baja, Imagen foto) {
         this.id = id;
         this.titulo = titulo;
         this.cuerpo = cuerpo;
+        this.alta = alta;
+        this.baja = baja;
         this.foto = foto;
     }
+
+    public Boolean getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Boolean alta) {
+        this.alta = alta;
+    }
+
+    public Boolean getBaja() {
+        return baja;
+    }
+
+    public void setBaja(Boolean baja) {
+        this.baja = baja;
+    }  
 
     public Long getId() {
         return id;

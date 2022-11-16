@@ -1,6 +1,6 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Noticias!</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+        <a class="nav-link" href="/"><img src="/imagenes/logoMgArgentina.png" id="imagenCabecera" alt="imagen noticia" width="165"></a>  
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,19 +15,30 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/noticia/listar">Listar noticias </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/quienesSomos">Sobre nosostros </a>
+                </li>
             </ul>
-             <span class="navbar-text">
-                <a class="nav-link" th:if="${session.usuariosession == null}" href="/registrar">Registro</a>
-            </span>
-            <span class="navbar-text">
-                <a class="nav-link" th:if="${session.usuariosession == null}" href="/login">Iniciar Sesión</a>
-            </span>
-            <span class="navbar-text">
-                <a class="nav-link" sec:authorize="hasRole('ADMIN') or hasRole('USER')" th:text="${session.usuariosession.nombre}" href="/perfil" ></a>
-            </span>
-              <span class="navbar-text">
-                <a class="nav-link" sec:authorize="hasRole('ADMIN') or hasRole('USER')" href="/logout">Cerrar Sesión</a>
-            </span>
+            <div class="derecha">
+                <span class="navbar-text">
+                    <a class="nav-link" th:if="${session.usuariosession == null}" href="/registrar">Registro</a>
+                </span>
+                <span class="navbar-text">
+                    <a class="nav-link" th:if="${session.usuariosession == null}" href="/login">Iniciar Sesión</a>
+                </span>
+                <span class="navbar-text">
+                    <a class="nav-link" sec:authorize="hasRole('ADMIN') or hasRole('USER')" th:text="${session.usuariosession.nombre}" href="/perfil" ></a>
+                </span>
+                <span class="navbar-text">
+                    <a class="nav-link" sec:authorize="hasRole('ADMIN') or hasRole('USER')" href="/logout">Cerrar Sesión</a>
+                </span>
+            </div>           
         </div>
-    </nav>
+    </nav> 
+    <section>
+        <div class="curve">
+
+        </div>
+    </section>
+
 </header>
