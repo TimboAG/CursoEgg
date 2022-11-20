@@ -42,9 +42,6 @@ public class ImagenControlador {
         return new ResponseEntity<>(imagen, headers, HttpStatus.OK);
     }
     
-    
-    
-    
     @Autowired
     private UsuarioServicio usuarioServicio;
 

@@ -1,5 +1,14 @@
-body {
-    background-color: #ed8f31 !important;
+/*body {
+    background: rgb(43,177,212) !important;
+    background: linear-gradient(351deg, rgba(43,177,212,1) 0%, rgba(43,135,212,1) 100%, rgba(246,169,27,1) 100%) !important;
+    max-height: 200% !important;
+    background-repeat: no-repeat !important;
+}*/
+
+body{
+    background-image: radial-gradient(circle at 50% -20.71%, #86c3f8 0, #0d8ace 50%, #0056a5 100%);
+    background-size: cover;
+
 }
 
 #imagenCabecera{    
@@ -45,7 +54,11 @@ textarea.form-control {
 #registroCard{
     margin: 8%;
 }
-#nav {
+#nav{
+    background-color: #343a4059!important;
+
+}
+/*#nav {
     padding-top: 1.5%;
     position: absolute;
     width: 100%;
@@ -62,12 +75,9 @@ section {
     padding-top: 100px;
     background: rgb(63,154,207);
     background: linear-gradient(0deg, rgba(63,154,207,1) 0%, rgba(38,127,193,1) 100%);    margin-bottom: 5%;
-}
+}*/
 
-
-element.style {
-}
-.curve {
+/*.curve {
     position: absolute;
     height: 170px;
     width: 100%;
@@ -95,7 +105,36 @@ element.style {
     background-color: #409acf;
     transform: translate(-4%, 40%);
     z-index: -1;
+}*/
+/*.curve {
+    position: absolute;
+    height: 170px;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
 }
+.curve::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    transform: translate(85%, 60%);
+    background-color: #ed8f31 !important;
+}
+
+.curve::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: #409acf;
+    transform: translate(-4%, 40%);
+    z-index: -1;
+}*/
 .derecha{
     margin-top: -3%;
     text-align: right !important;
@@ -107,7 +146,6 @@ element.style {
 .navbar-collapse {
     background: #343a4000 !important;
     text-align: right;
-
 }
 #navbarText{
     padding-right: 3%;
@@ -115,7 +153,26 @@ element.style {
 #cardTrue{
     background-color: #fff;
     max-width: 30%;
+    color: black;
+    text-align: center;
+    -webkit-box-shadow: 14px 17px 32px -11px rgba(0,0,0,0.57);
+    -moz-box-shadow: 14px 17px 32px -11px rgba(0,0,0,0.57);
+    box-shadow: 14px 17px 32px -11px rgba(0,0,0,0.57);
 }
 #cardFalse{
-    background-color: #hhh !important;
+    background-color: red !important;
+    max-width: 30%;    
+    color: #fff;
+    -webkit-box-shadow: 14px 17px 32px -11px rgba(0,0,0,0.57);
+    -moz-box-shadow: 14px 17px 32px -11px rgba(0,0,0,0.57);
+    box-shadow: 14px 17px 32px -11px rgba(0,0,0,0.57);
+}
+#links{
+    background-color:  #fff;
+    width: 100%;    
+    text-align: center;
+}
+
+.containerIndex{
+    flex-flow:column;
 }

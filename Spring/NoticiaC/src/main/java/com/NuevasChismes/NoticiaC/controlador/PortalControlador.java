@@ -24,7 +24,6 @@ public class PortalControlador {
     @Autowired
     private UsuarioServicio usuarioServicio;
     @Autowired
-    private NoticiaServicio noticiaServicio;
 
     @GetMapping("/")
     public String index() {
@@ -60,16 +59,6 @@ public class PortalControlador {
             modelo.put("Error", "El usuario o la contraseña es incorrecto");
         }
         return "login";
-    }
-
-    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping("/inicio")
-    public String inicio(HttpSession session) {
-        Usuario logueado = (Usuario) session.getAttribute("usuariosession");
-        if (logueado.getRol().toString().equals("ADMIN")) {
-            return "redirect:/admin/tablero";
-        }
-        return "inicio";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
@@ -109,15 +98,4 @@ public class PortalControlador {
             return "perfilModificar";
         }
     }
-
-    @GetMapping("/quienesSomos")
-    public String quienesSomos() {
-        return "quienesSomos";
-    }
- 
-    
-    
-   
-    
-    
 }

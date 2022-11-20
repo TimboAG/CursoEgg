@@ -7,6 +7,7 @@ import com.NuevasChismes.NoticiaC.servicio.ImagenServicio;
 import com.NuevasChismes.NoticiaC.servicio.NoticiaServicio;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -44,9 +45,10 @@ public class NoticiaControlador {
 
     @GetMapping("/listar")
     public String listar(ModelMap modelo) {
-//        List<Noticia> noticiaLista = noticiaServicio.listarNoticias();
-        List<Noticia> noticiaLista = noticiaServicio.listarNoticias();
-        modelo.addAttribute("noticiaLista", noticiaLista);
+        List<Noticia> noticiaListaAlta = noticiaServicio.listaAlta();
+        List<Noticia> noticiaListaBaja = noticiaServicio.listaBaja();
+        modelo.addAttribute("noticiaListaAlta", noticiaListaAlta);
+        modelo.addAttribute("noticiaListaBaja", noticiaListaBaja);
         return "listar";
     }
 
@@ -74,9 +76,9 @@ public class NoticiaControlador {
     }
 
     @GetMapping("/alta/{id}")
-    public String alta( @PathVariable Long id, ModelMap modelo) throws MiException, Exception {
+    public String alta(@PathVariable Long id, ModelMap modelo) throws MiException, Exception {
         try {
-            noticiaServicio.alta( id );
+            noticiaServicio.alta(id);
             return "redirect:../listar";
         } catch (MiException e) {
             modelo.put("error", e.getMessage());

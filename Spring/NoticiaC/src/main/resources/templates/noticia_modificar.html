@@ -14,7 +14,7 @@ and open the template in the editor.
                     <div class="contenido">
                         <img src="/imagenes/imagenNoticia.png" class="rounded-circle" id="imagenCabecera" alt="imagen noticia" width="165">
 
-                        <h1>Modifique su noticia aqui </h1>
+                        <h1>Modifique aqui </h1>
                     </div>
                 </header>
             </div>
@@ -39,7 +39,7 @@ and open the template in the editor.
                         </div>
                     </div>                   
                     <br> <div class="mb-3">
-                        <label for="formFile" class="form-label">Imagen para la noticia</label>
+                        <label for="formFile" class="form-label">Imagen </label>
                         <input class="form-control" name="foto" type="file" id="formFile">
                     </div>
                     <select class="form-control" name="alta">
@@ -51,7 +51,7 @@ and open the template in the editor.
                     </div>
                     <div th:if="${exito != null}" class="alert alert-success" role="alert">
                         <p class="MensajeExito" th:text="${exito}"></p>
-                        <a class="btn" th:href="@{/noticia/listar}" >Listar noticias</a>
+                        <a class="btn" th:href="@{/noticia/listar}" >Listar </a>
                     </div>
                     <button class="btn btn-secondary btn-lg btn-block" type="submit" id="botonEnviar">Actualizar</button>
                 </form>

@@ -135,4 +135,29 @@ public class NoticiaServicio {
         }
         return null;
     }
+
+    @Transactional
+    public List<Noticia> listaAlta() {
+        List<Noticia> miLista = new ArrayList();
+        Noticia noticia = new Noticia();
+        List<Noticia> noticiaAlta = noticiaRepositorio.alta();
+        for (int i = 0; i < noticiaAlta.size(); i++) {
+            noticia = noticiaAlta.get(i);
+            miLista.add(noticia);
+        }
+        return miLista;
+    }
+
+    @Transactional
+    public List<Noticia> listaBaja() {
+        List<Noticia> miLista = new ArrayList();
+        Noticia noticia = new Noticia();
+        List<Noticia> noticiaBaja = noticiaRepositorio.baja();
+        for (int i = 0; i < noticiaBaja.size(); i++) {
+            noticia = noticiaBaja.get(i);
+            miLista.add(noticia);
+        }
+        return miLista;
+    }
+
 }
