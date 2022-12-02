@@ -16,14 +16,20 @@ window.addEventListener("load", function () {
   // 4-Multiplicar `;
   // menu.textContent = menu2;
   // alert(menu2);
-  titulo.textContent = `¿Que desea Realizar?`;
+  titulo.textContent = `¿Que desea Realizar? `;
   //   menu.textContent = `1- Sumar
   // 2-Restar
   // 3-Dividir
   // 4-Multiplicar
   // `;
   menu.innerHTML =
-    "1- Sumar " + "<br>" + "2-Restar \n  3-Dividir \n 4-Multiplicar ";
+    "1- Sumar " +
+    "<br>" +
+    "2-Restar " +
+    "<br>" +
+    " 3-Dividir" +
+    "<br>" +
+    " 4-Multiplicar ";
 
   ingreso2Input.style.display = "none";
   ingreso = document.querySelector("#ingresoDato").value;

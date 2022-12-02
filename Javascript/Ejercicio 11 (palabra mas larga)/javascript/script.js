@@ -13,16 +13,19 @@ function principio() {
     console.log("aca principio");
     var ingreso = document.querySelector("#ingresoDato").value;
     ingreso = ingreso.toString();
-    let texto = "";
-    console.log(ingreso.length);
     e.preventDefault();
-    let texto1;
-    for (let i = 0; i < ingreso.length; i++) {
-      texto1 = ingreso.substring(i, i + 1);
-      texto = texto + texto1 + " ";
-    }
     respuestaDiv.style.display = "block";
-
-    respuesta.textContent = `  ${texto}`;
+    respuesta.textContent = `  ${palabraMasLarga(ingreso)}`;
   });
 }
+
+const palabraMasLarga = (ingreso) => {
+  const mayor = ingreso.split(" ");
+  let palabraMasLarga = mayor[0];
+  for (const ingreso of mayor) {
+    if (ingreso.length >= palabraMasLarga.length) {
+      palabraMasLarga = ingreso;
+    }
+  }
+  return palabraMasLarga;
+};
